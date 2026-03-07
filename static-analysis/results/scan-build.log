@@ -1,0 +1,455 @@
+scan-build: Using '/usr/lib/llvm-18/bin/clang' for static analysis
+make  all-recursive
+make[1]: Entering directory '/work/libxml2'
+Making all in include
+make[2]: Entering directory '/work/libxml2/include'
+Making all in libxml
+make[3]: Entering directory '/work/libxml2/include/libxml'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/work/libxml2/include/libxml'
+Making all in private
+make[3]: Entering directory '/work/libxml2/include/private'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/work/libxml2/include/private'
+make[3]: Entering directory '/work/libxml2/include'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/work/libxml2/include'
+make[2]: Leaving directory '/work/libxml2/include'
+Making all in .
+make[2]: Entering directory '/work/libxml2'
+  CC       xmllint-xmllint.o
+  CC       libxml2_la-buf.lo
+  CC       libxml2_la-chvalid.lo
+  CC       libxml2_la-dict.lo
+dict.c:777:9: warning: Access to field 'hashValue' results in a dereference of a null pointer (loaded from variable 'entry') [core.NullDereference]
+  777 |     if (entry->hashValue != 0) {
+      |         ^~~~~~~~~~~~~~~~
+1 warning generated.
+  CC       libxml2_la-entities.lo
+xmllint.c:1919:2: warning: 2nd function call argument is an uninitialized value [core.CallAndMessage]
+ 1919 |         munmap((char *) base, info.st_size);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+  CC       libxml2_la-encoding.lo
+  CC       libxml2_la-error.lo
+  CC       libxml2_la-globals.lo
+  CC       libxml2_la-hash.lo
+  CC       libxml2_la-list.lo
+  CC       libxml2_la-parser.lo
+hash.c:556:9: warning: Access to field 'hashValue' results in a dereference of a null pointer (loaded from variable 'entry') [core.NullDereference]
+  556 |     if (entry->hashValue != 0) {
+      |         ^~~~~~~~~~~~~~~~
+1 warning generated.
+  CC       libxml2_la-parserInternals.lo
+  CC       libxml2_la-SAX2.lo
+SAX2.c:1107:6: warning: Array access (from variable 'val') results in a null pointer dereference [core.NullDereference]
+ 1107 |         if (val[0] != 0) {
+      |             ^~~~~~
+SAX2.c:1173:6: warning: Array access (from variable 'val') results in a null pointer dereference [core.NullDereference]
+ 1173 |         if (val[0] == 0) {
+      |             ^~~~~~
+2 warnings generated.
+  CC       libxml2_la-threads.lo
+  CC       libxml2_la-tree.lo
+parser.c:1795:23: warning: Access to field 'hashValue' results in a dereference of a null pointer (loaded from variable 'bucket') [core.NullDereference]
+ 1795 |     bucket->hashValue = hashValue;
+      |     ~~~~~~            ^
+parser.c:1849:27: warning: Access to field 'index' results in a dereference of a null pointer (loaded from variable 'bucket') [core.NullDereference]
+ 1849 |             bucket->index = extra->oldIndex;
+      |             ~~~~~~        ^
+parser.c:9739:28: warning: Assigned value is garbage or undefined [core.uninitialized.Assign]
+ 9739 |             atts[nbatts++] = (const xmlChar *) (size_t) haprefix.hashValue;
+      |                            ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+parser.c:12276:21: warning: Access to field 'buf' results in a dereference of a null pointer (loaded from field 'input') [core.NullDereference]
+ 12276 |         } else if ((ctxt->input->buf != NULL) &&
+       |                     ^~~~~~~~~~~~~~~~
+parser.c:12814:26: warning: Access to field 'version' results in a dereference of a null pointer (loaded from variable 'oldctxt') [core.NullDereference]
+ 12814 |         if ((xmlStrEqual(oldctxt->version, BAD_CAST "1.0")) &&
+       |                          ^~~~~~~~~~~~~~~~
+5 warnings generated.
+  CC       libxml2_la-uri.lo
+  CC       libxml2_la-valid.lo
+tree.c:1264:6: warning: Value stored to 'q' is never read [deadcode.DeadStores]
+ 1264 |             q = cur;
+      |             ^   ~~~
+tree.c:1421:3: warning: Value stored to 'charval' is never read [deadcode.DeadStores]
+ 1421 |                 charval = 0;
+      |                 ^         ~
+tree.c:1492:6: warning: Value stored to 'q' is never read [deadcode.DeadStores]
+ 1492 |             q = cur;
+      |             ^   ~~~
+tree.c:1625:3: warning: Value stored to 'charval' is never read [deadcode.DeadStores]
+ 1625 |                 charval = 0;
+      |                 ^         ~
+tree.c:3375:17: warning: Access to field 'next' results in a dereference of a null pointer (loaded from variable 'prev') [core.NullDereference]
+ 3375 |             prev->next = cur;
+      |             ~~~~       ^
+tree.c:4681:9: warning: Value stored to 'sep' is never read [deadcode.DeadStores]
+ 4681 |         sep = "?";
+      |         ^     ~~~
+6 warnings generated.
+  CC       libxml2_la-xmlIO.lo
+  CC       libxml2_la-xmlmemory.lo
+  CC       libxml2_la-xmlstring.lo
+xmlstring.c:795:9: warning: Value stored to 'ix' is never read [deadcode.DeadStores]
+  795 |         ix = 0;
+      |         ^    ~
+1 warning generated.
+  CC       libxml2_la-c14n.lo
+  CC       libxml2_la-catalog.lo
+valid.c:5198:29: warning: Value stored to 'ret' is never read [deadcode.DeadStores]
+ 5198 |                             ret = xmlRegExecPushString(exec, fullname, NULL);
+      |                             ^     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+valid.c:5202:8: warning: Value stored to 'ret' is never read [deadcode.DeadStores]
+ 5202 |                             ret = xmlRegExecPushString(exec, cur->name, NULL);
+      |                             ^     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+valid.c:6057:6: warning: Value stored to 'cont' is never read [deadcode.DeadStores]
+ 6057 |             cont = elemDecl->content;
+      |             ^      ~~~~~~~~~~~~~~~~~
+3 warnings generated.
+  CC       libxml2_la-debugXML.lo
+debugXML.c:285:9: warning: Access to field 'dict' results in a dereference of a null pointer (loaded from variable 'doc') [core.NullDereference]
+  285 |         dict = doc->dict;
+      |                ^~~~~~~~~
+1 warning generated.
+  CC       libxml2_la-HTMLparser.lo
+catalog.c:826:12: warning: Dereference of null pointer (loaded from variable 'urn') [core.NullDereference]
+  826 |     while (*urn != 0) {
+      |            ^~~~
+1 warning generated.
+  CC       libxml2_la-HTMLtree.lo
+  CC       libxml2_la-nanohttp.lo
+  CC       libxml2_la-xmlmodule.lo
+  CC       libxml2_la-xmlsave.lo
+xmlsave.c:779:20: warning: Access to field 'encoding' results in a dereference of a null pointer (loaded from variable 'doc') [core.NullDereference]
+  779 |             doc->encoding = oldenc;
+      |             ~~~           ^
+1 warning generated.
+  CC       libxml2_la-pattern.lo
+  CC       libxml2_la-xmlreader.lo
+pattern.c:1897:3: warning: Value stored to 'desc' is never read [deadcode.DeadStores]
+ 1897 |                 desc = 0;
+      |                 ^      ~
+1 warning generated.
+  CC       libxml2_la-xmlregexp.lo
+  CC       libxml2_la-xmlunicode.lo
+  CC       libxml2_la-relaxng.lo
+xmlregexp.c:3968:21: warning: Null pointer passed to 2nd parameter expecting 'nonnull' [core.NonNullParamChecker]
+ 3968 |                     memcpy(exec->errCounts, exec->counts,
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 3969 |                            exec->comp->nbCounters * sizeof(int));
+      |                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+xmlregexp.c:4212:22: warning: Access to field 'states' results in a dereference of a null pointer (loaded from field 'comp') [core.NullDereference]
+ 4212 |                 if ((exec->comp->states[trans->to] != NULL) &&
+      |                      ^~~~~~~~~~~~~~~~~~
+2 warnings generated.
+  CC       libxml2_la-xmlschemas.lo
+relaxng.c:6139:9: warning: Value stored to 'ret' is never read [deadcode.DeadStores]
+ 6139 |         ret = XML_RELAXNG_CONTENT_EMPTY;
+      |         ^     ~~~~~~~~~~~~~~~~~~~~~~~~~
+relaxng.c:6429:17: warning: Value stored to 'tmp' is never read [deadcode.DeadStores]
+ 6429 |                 tmp = xmlRelaxNGMaxContentType(val, ret);
+      |                 ^     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+relaxng.c:9344:22: warning: Access to field 'seq' results in a dereference of a null pointer (loaded from field 'state') [core.NullDereference]
+ 9344 |     ctxt->state->seq = lastelem;
+      |           ~~~~~      ^
+relaxng.c:9673:30: warning: Access to field 'seq' results in a dereference of a null pointer (loaded from field 'state') [core.NullDereference]
+ 9673 |             ctxt->state->seq = node;
+      |                   ~~~~~      ^
+relaxng.c:9948:17: warning: Value stored to 'errNr' is never read [deadcode.DeadStores]
+ 9948 |                 errNr = ctxt->errNr;
+      |                 ^       ~~~~~~~~~~~
+relaxng.c:10059:9: warning: Value stored to 'progress' is never read [deadcode.DeadStores]
+ 10059 |                                     progress = 0;
+       |                                     ^          ~
+relaxng.c:10235:50: warning: Access to field 'seq' results in a dereference of a null pointer (loaded from field 'state') [core.NullDereference]
+ 10235 |                                                  ctxt->state->seq);
+       |                                                  ^~~~~~~~~~~~~~~~
+relaxng.c:10277:28: warning: Access to field 'value' results in a dereference of a null pointer (loaded from field 'state') [core.NullDereference]
+ 10277 |                 oldvalue = ctxt->state->value;
+       |                            ^~~~~~~~~~~~~~~~~~
+relaxng.c:10329:28: warning: Access to field 'value' results in a dereference of a null pointer (loaded from field 'state') [core.NullDereference]
+ 10329 |                 oldvalue = ctxt->state->value;
+       |                            ^~~~~~~~~~~~~~~~~~
+9 warnings generated.
+  CC       libxml2_la-xmlschemastypes.lo
+  CC       libxml2_la-schematron.lo
+  CC       libxml2_la-xmlwriter.lo
+xmlwriter.c:1000:25: warning: Value stored to 'count' is never read [deadcode.DeadStores]
+ 1000 |                         count =
+      |                         ^
+ 1001 |                             xmlOutputBufferWriteString(writer->out, "\n");
+      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+  CC       libxml2_la-xinclude.lo
+xinclude.c:713:28: warning: Access to field 'parent' results in a dereference of a null pointer (loaded from variable 'insertParent') [core.NullDereference]
+  713 |             insertParent = insertParent->parent;
+      |                            ^~~~~~~~~~~~~~~~~~~~
+xinclude.c:1181:14: warning: Access to field 'intSubset' results in a dereference of a null pointer (loaded from variable 'doc') [core.NullDereference]
+ 1181 |     target = doc->intSubset;
+      |              ^~~~~~~~~~~~~~
+2 warnings generated.
+  CC       libxml2_la-xpath.lo
+xmlschemas.c:13820:12: warning: Access to field 'value' results in a dereference of a null pointer (loaded from field 'negNsSet') [core.NullDereference]
+ 13820 |             neg = curWild->negNsSet->value;
+       |                   ^~~~~~~~~~~~~~~~~~~~~~~~
+xmlschemas.c:18490:36: warning: Access to field 'children' results in a dereference of a null pointer (loaded from field 'children') [core.NullDereference]
+ 18490 |                     particle->children->children =
+       |                               ~~~~~~~~           ^
+xmlschemas.c:19775:13: warning: Access to field 'baseType' results in a dereference of a null pointer (loaded from field 'subtypes') [core.NullDereference]
+ 19775 |             type = elemDecl->subtypes->baseType;
+       |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+xmlschemas.c:23366:8: warning: Value stored to 'res' is never read [deadcode.DeadStores]
+ 23366 |                             res = 0;
+       |                             ^     ~
+xmlschemas.c:24188:5: warning: Value stored to 'ret' is never read [deadcode.DeadStores]
+ 24188 |     ret = 0;
+       |     ^     ~
+xmlschemas.c:24224:2: warning: Value stored to 'ret' is never read [deadcode.DeadStores]
+ 24224 |         ret = 0;
+       |         ^     ~
+xmlschemas.c:24233:5: warning: Value stored to 'ret' is never read [deadcode.DeadStores]
+ 24233 |     ret = 0;
+       |     ^     ~
+xmlschemas.c:24260:2: warning: Value stored to 'ret' is never read [deadcode.DeadStores]
+ 24260 |         ret = 0;
+       |         ^     ~
+xmlschemas.c:25457:2: warning: Value stored to 'fixed' is never read [deadcode.DeadStores]
+ 25457 |         fixed = 0;
+       |         ^       ~
+9 warnings generated.
+  CC       libxml2_la-xlink.lo
+xlink.c:143:4: warning: Value stored to 'ret' is never read [deadcode.DeadStores]
+  143 |                         ret = XLINK_TYPE_EXTENDED_SET;
+      |                         ^     ~~~~~~~~~~~~~~~~~~~~~~~
+xlink.c:150:4: warning: Value stored to 'ret' is never read [deadcode.DeadStores]
+  150 |                         ret = XLINK_TYPE_EXTENDED_SET;
+      |                         ^     ~~~~~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+  CC       libxml2_la-xpointer.lo
+  CC       xmlcatalog-xmlcatalog.o
+xmlcatalog.c:110:2: warning: Value stored to 'nbargs' is never read [deadcode.DeadStores]
+  110 |         nbargs = 0;
+      |         ^        ~
+xmlcatalog.c:409:9: warning: Value stored to 'ret' is never read [deadcode.DeadStores]
+  409 |         ret = xmlCatalogConvert();
+      |         ^     ~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+  CC       testdso.lo
+  CCLD     testdso.la
+xpath.c:11641:23: warning: Access to field 'boolval' results in a dereference of a null pointer (loaded from field 'value') [core.NullDereference]
+ 11641 |         ctxt->value->boolval = 1;
+       |               ~~~~~          ^
+xpath.c:12905:7: warning: Value stored to 'ret' is never read [deadcode.DeadStores]
+ 12905 |                     ret = xmlStreamPop(patstream);
+       |                     ^     ~~~~~~~~~~~~~~~~~~~~~~~
+xpath.c:12951:3: warning: Value stored to 'ret' is never read [deadcode.DeadStores]
+ 12951 |                 ret = xmlStreamPop(patstream);
+       |                 ^     ~~~~~~~~~~~~~~~~~~~~~~~
+xpath.c:12958:3: warning: Value stored to 'ret' is never read [deadcode.DeadStores]
+ 12958 |                 ret = xmlStreamPop(patstream);
+       |                 ^     ~~~~~~~~~~~~~~~~~~~~~~~
+xpath.c:13049:16: warning: Access to field 'depth' results in a dereference of a null pointer (loaded from field 'context') [core.NullDereference]
+ 13049 |     oldDepth = ctxt->context->depth;
+       |                ^~~~~~~~~~~~~~~~~~~~
+5 warnings generated.
+  CCLD     libxml2.la
+  CCLD     xmllint
+  CCLD     xmlcatalog
+make[2]: Leaving directory '/work/libxml2'
+Making all in doc
+make[2]: Entering directory '/work/libxml2/doc'
+Making all in .
+make[3]: Entering directory '/work/libxml2/doc'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/work/libxml2/doc'
+Making all in devhelp
+make[3]: Entering directory '/work/libxml2/doc/devhelp'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/work/libxml2/doc/devhelp'
+Making all in examples
+make[3]: Entering directory '/work/libxml2/doc/examples'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/work/libxml2/doc/examples'
+make[2]: Leaving directory '/work/libxml2/doc'
+Making all in example
+make[2]: Entering directory '/work/libxml2/example'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/work/libxml2/example'
+Making all in xstc
+make[2]: Entering directory '/work/libxml2/xstc'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/work/libxml2/xstc'
+Making all in python
+make[2]: Entering directory '/work/libxml2/python'
+/usr/bin/python3 ./generator.py .
+Found 1617 functions in libxml2-api.xml
+Found 54 functions in libxml2-python-api.xml
+Generated 891 wrapper functions, 574 failed, 206 skipped
+make  all-recursive
+make[3]: Entering directory '/work/libxml2/python'
+Making all in .
+make[4]: Entering directory '/work/libxml2/python'
+  CC       libxml.lo
+libxml.c:1664:9: warning: Access to field '_private' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 1664 |     if (ctxt->_private == NULL) {
+      |         ^~~~~~~~~~~~~~
+libxml.c:1714:9: warning: Access to field '_private' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 1714 |     if (ctxt->_private != NULL) {
+      |         ^~~~~~~~~~~~~~
+libxml.c:1891:37: warning: Access to field 'userData' results in a dereference of a null pointer (loaded from variable 'cur') [core.NullDereference]
+ 1891 |     pyCtxt = (xmlValidCtxtPyCtxtPtr)(cur->userData);
+      |                                     ^~~~~~~~~~~~~~~
+libxml.c:2911:38: warning: Access to field 'catalogs' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 2911 |         ctxt->catalogs = xmlCatalogAddLocal(ctxt->catalogs, URL);
+      |                                             ^~~~~~~~~~~~~~
+4 warnings generated.
+  CC       types.lo
+  CC       libxml2-py.lo
+libxml2-py.c:2599:16: warning: Access to field 'code' results in a dereference of a null pointer (loaded from variable 'Error') [core.NullDereference]
+ 2599 |     c_retval = Error->code;
+      |                ^~~~~~~~~~~
+libxml2-py.c:2615:16: warning: Access to field 'domain' results in a dereference of a null pointer (loaded from variable 'Error') [core.NullDereference]
+ 2615 |     c_retval = Error->domain;
+      |                ^~~~~~~~~~~~~
+libxml2-py.c:2631:16: warning: Access to field 'file' results in a dereference of a null pointer (loaded from variable 'Error') [core.NullDereference]
+ 2631 |     c_retval = Error->file;
+      |                ^~~~~~~~~~~
+libxml2-py.c:2647:16: warning: Access to field 'level' results in a dereference of a null pointer (loaded from variable 'Error') [core.NullDereference]
+ 2647 |     c_retval = Error->level;
+      |                ^~~~~~~~~~~~
+libxml2-py.c:2663:16: warning: Access to field 'line' results in a dereference of a null pointer (loaded from variable 'Error') [core.NullDereference]
+ 2663 |     c_retval = Error->line;
+      |                ^~~~~~~~~~~
+libxml2-py.c:2679:16: warning: Access to field 'message' results in a dereference of a null pointer (loaded from variable 'Error') [core.NullDereference]
+ 2679 |     c_retval = Error->message;
+      |                ^~~~~~~~~~~~~~
+libxml2-py.c:5827:16: warning: Access to field 'myDoc' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 5827 |     c_retval = ctxt->myDoc;
+      |                ^~~~~~~~~~~
+libxml2-py.c:5843:16: warning: Access to field 'valid' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 5843 |     c_retval = ctxt->valid;
+      |                ^~~~~~~~~~~
+libxml2-py.c:5859:16: warning: Access to field 'wellFormed' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 5859 |     c_retval = ctxt->wellFormed;
+      |                ^~~~~~~~~~~~~~~~
+libxml2-py.c:5966:23: warning: Access to field 'linenumbers' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 5966 |     ctxt->linenumbers = linenumbers;
+      |     ~~~~              ^
+libxml2-py.c:5981:22: warning: Access to field 'loadsubset' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 5981 |     ctxt->loadsubset = loadsubset;
+      |     ~~~~             ^
+libxml2-py.c:5996:20: warning: Access to field 'pedantic' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 5996 |     ctxt->pedantic = pedantic;
+      |     ~~~~           ^
+libxml2-py.c:6011:27: warning: Access to field 'replaceEntities' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 6011 |     ctxt->replaceEntities = replaceEntities;
+      |     ~~~~                  ^
+libxml2-py.c:6026:20: warning: Access to field 'validate' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 6026 |     ctxt->validate = validate;
+      |     ~~~~           ^
+libxml2-py.c:12195:16: warning: Access to field 'authority' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12195 |     c_retval = URI->authority;
+       |                ^~~~~~~~~~~~~~
+libxml2-py.c:12211:16: warning: Access to field 'fragment' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12211 |     c_retval = URI->fragment;
+       |                ^~~~~~~~~~~~~
+libxml2-py.c:12227:16: warning: Access to field 'opaque' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12227 |     c_retval = URI->opaque;
+       |                ^~~~~~~~~~~
+libxml2-py.c:12243:16: warning: Access to field 'path' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12243 |     c_retval = URI->path;
+       |                ^~~~~~~~~
+libxml2-py.c:12259:16: warning: Access to field 'port' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12259 |     c_retval = URI->port;
+       |                ^~~~~~~~~
+libxml2-py.c:12275:16: warning: Access to field 'query' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12275 |     c_retval = URI->query;
+       |                ^~~~~~~~~~
+libxml2-py.c:12291:16: warning: Access to field 'query_raw' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12291 |     c_retval = URI->query_raw;
+       |                ^~~~~~~~~~~~~~
+libxml2-py.c:12307:16: warning: Access to field 'scheme' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12307 |     c_retval = URI->scheme;
+       |                ^~~~~~~~~~~
+libxml2-py.c:12323:16: warning: Access to field 'server' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12323 |     c_retval = URI->server;
+       |                ^~~~~~~~~~~
+libxml2-py.c:12339:16: warning: Access to field 'user' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12339 |     c_retval = URI->user;
+       |                ^~~~~~~~~
+libxml2-py.c:12354:9: warning: Access to field 'authority' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12354 |     if (URI->authority != NULL) xmlFree(URI->authority);
+       |         ^~~~~~~~~~~~~~
+libxml2-py.c:12370:9: warning: Access to field 'fragment' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12370 |     if (URI->fragment != NULL) xmlFree(URI->fragment);
+       |         ^~~~~~~~~~~~~
+libxml2-py.c:12386:9: warning: Access to field 'opaque' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12386 |     if (URI->opaque != NULL) xmlFree(URI->opaque);
+       |         ^~~~~~~~~~~
+libxml2-py.c:12402:9: warning: Access to field 'path' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12402 |     if (URI->path != NULL) xmlFree(URI->path);
+       |         ^~~~~~~~~
+libxml2-py.c:12418:15: warning: Access to field 'port' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12418 |     URI->port = port;
+       |     ~~~       ^
+libxml2-py.c:12433:9: warning: Access to field 'query' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12433 |     if (URI->query != NULL) xmlFree(URI->query);
+       |         ^~~~~~~~~~
+libxml2-py.c:12449:9: warning: Access to field 'query_raw' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12449 |     if (URI->query_raw != NULL) xmlFree(URI->query_raw);
+       |         ^~~~~~~~~~~~~~
+libxml2-py.c:12465:9: warning: Access to field 'scheme' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12465 |     if (URI->scheme != NULL) xmlFree(URI->scheme);
+       |         ^~~~~~~~~~~
+libxml2-py.c:12481:9: warning: Access to field 'server' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12481 |     if (URI->server != NULL) xmlFree(URI->server);
+       |         ^~~~~~~~~~~
+libxml2-py.c:12497:9: warning: Access to field 'user' results in a dereference of a null pointer (loaded from variable 'URI') [core.NullDereference]
+ 12497 |     if (URI->user != NULL) xmlFree(URI->user);
+       |         ^~~~~~~~~
+libxml2-py.c:13729:16: warning: Access to field 'doc' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 13729 |     c_retval = ctxt->doc;
+       |                ^~~~~~~~~
+libxml2-py.c:13747:16: warning: Access to field 'node' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 13747 |     c_retval = ctxt->node;
+       |                ^~~~~~~~~~
+libxml2-py.c:13765:16: warning: Access to field 'proximityPosition' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 13765 |     c_retval = ctxt->proximityPosition;
+       |                ^~~~~~~~~~~~~~~~~~~~~~~
+libxml2-py.c:13783:16: warning: Access to field 'contextSize' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 13783 |     c_retval = ctxt->contextSize;
+       |                ^~~~~~~~~~~~~~~~~
+libxml2-py.c:13801:16: warning: Access to field 'function' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 13801 |     c_retval = ctxt->function;
+       |                ^~~~~~~~~~~~~~
+libxml2-py.c:13819:16: warning: Access to field 'functionURI' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 13819 |     c_retval = ctxt->functionURI;
+       |                ^~~~~~~~~~~~~~~~~
+libxml2-py.c:14607:16: warning: Access to field 'context' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 14607 |     c_retval = ctxt->context;
+       |                ^~~~~~~~~~~~~
+libxml2-py.c:14816:15: warning: Access to field 'doc' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 14816 |     ctxt->doc = doc;
+       |     ~~~~      ^
+libxml2-py.c:14835:16: warning: Access to field 'node' results in a dereference of a null pointer (loaded from variable 'ctxt') [core.NullDereference]
+ 14835 |     ctxt->node = node;
+       |     ~~~~       ^
+43 warnings generated.
+  CCLD     libxml2mod.la
+cat ./libxml.py `test -f libxml2class.py || echo ./`libxml2class.py > libxml2.py
+make[4]: Leaving directory '/work/libxml2/python'
+Making all in tests
+make[4]: Entering directory '/work/libxml2/python/tests'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/work/libxml2/python/tests'
+make[3]: Leaving directory '/work/libxml2/python'
+make[2]: Leaving directory '/work/libxml2/python'
+Making all in fuzz
+make[2]: Entering directory '/work/libxml2/fuzz'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/work/libxml2/fuzz'
+make[1]: Leaving directory '/work/libxml2'
+scan-build: Analysis run complete.
+scan-build: 98 bugs found.
+scan-build: Run 'scan-view /results/scan-build-report/2026-03-06-160453-5175-1' to examine bug reports.

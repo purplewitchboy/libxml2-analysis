@@ -1,0 +1,391 @@
+<html>
+<head>
+<title>libxml2 - scan-build results</title>
+<link type="text/css" rel="stylesheet" href="scanview.css"/>
+<script src="sorttable.js"></script>
+<script language='javascript' type="text/javascript">
+function SetDisplay(RowClass, DisplayVal)
+{
+  var Rows = document.getElementsByTagName("tr");
+  for ( var i = 0 ; i < Rows.length; ++i ) {
+    if (Rows[i].className == RowClass) {
+      Rows[i].style.display = DisplayVal;
+    }
+  }
+}
+
+function CopyCheckedStateToCheckButtons(SummaryCheckButton) {
+  var Inputs = document.getElementsByTagName("input");
+  for ( var i = 0 ; i < Inputs.length; ++i ) {
+    if (Inputs[i].type == "checkbox") {
+      if(Inputs[i] != SummaryCheckButton) {
+        Inputs[i].checked = SummaryCheckButton.checked;
+        Inputs[i].onclick();
+      }
+    }
+  }
+}
+
+function returnObjById( id ) {
+    if (document.getElementById)
+        var returnVar = document.getElementById(id);
+    else if (document.all)
+        var returnVar = document.all[id];
+    else if (document.layers)
+        var returnVar = document.layers[id];
+    return returnVar;
+}
+
+var NumUnchecked = 0;
+
+function ToggleDisplay(CheckButton, ClassName) {
+  if (CheckButton.checked) {
+    SetDisplay(ClassName, "");
+    if (--NumUnchecked == 0) {
+      returnObjById("AllBugsCheck").checked = true;
+    }
+  }
+  else {
+    SetDisplay(ClassName, "none");
+    NumUnchecked++;
+    returnObjById("AllBugsCheck").checked = false;
+  }
+}
+</script>
+<!-- SUMMARYENDHEAD -->
+</head>
+<body>
+<h1>libxml2 - scan-build results</h1>
+
+<table>
+<tr><th>User:</th><td>root@d378afcc0046</td></tr>
+<tr><th>Working Directory:</th><td>/work/libxml2</td></tr>
+<tr><th>Command Line:</th><td>make -j2</td></tr>
+<tr><th>Clang Version:</th><td>Ubuntu clang version 18.1.3 (1ubuntu1)
+</td></tr>
+<tr><th>Date:</th><td>Fri Mar  6 16:04:53 2026</td></tr>
+</table>
+<h2>Bug Summary</h2><table>
+<thead><tr><td>Bug Type</td><td>Quantity</td><td class="sorttable_nosort">Display?</td></tr></thead>
+<tr style="font-weight:bold"><td class="SUMM_DESC">All Bugs</td><td class="Q">98</td><td><center><input type="checkbox" id="AllBugsCheck" onClick="CopyCheckedStateToCheckButtons(this);" checked/></center></td></tr>
+<tr><th>API</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Argument with 'nonnull' attribute passed null</td><td class="Q">1</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_api_argument_with_nonnull_attribute_passed_null');" checked/></center></td></tr>
+<tr><th>Logic error</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Assigned value is garbage or undefined</td><td class="Q">1</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_assigned_value_is_garbage_or_undefined');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Dereference of null pointer</td><td class="Q">71</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_dereference_of_null_pointer');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Uninitialized argument value</td><td class="Q">1</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_uninitialized_argument_value');" checked/></center></td></tr>
+<tr><th>Unused code</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Dead assignment</td><td class="Q">24</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_unused_code_dead_assignment');" checked/></center></td></tr>
+</table>
+<h2>Reports</h2>
+
+<table class="sortable" style="table-layout:automatic">
+<thead><tr>
+  <td>Bug Group</td>
+  <td class="sorttable_sorted">Bug Type<span id="sorttable_sortfwdind">&nbsp;&#x25BE;</span></td>
+  <td>File</td>
+  <td>Function/Method</td>
+  <td class="Q">Line</td>
+  <td class="Q">Path Length</td>
+  <td class="sorttable_nosort"></td>
+  <!-- REPORTBUGCOL -->
+</tr></thead>
+<tbody>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>xmlregexp.c</td><td class="DESC">xmlRegExecPushStringInternal</td><td class="Q">3968</td><td class="Q">29</td><td><a href="report-e1f988.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e1f988.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>parser.c</td><td class="DESC">xmlParseStartTag2</td><td class="Q">9739</td><td class="Q">57</td><td><a href="report-bd66e7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bd66e7.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>relaxng.c</td><td class="DESC">xmlRelaxNGValidateState</td><td class="Q">9948</td><td class="Q">1</td><td><a href="report-19085a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-19085a.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>xlink.c</td><td class="DESC">xlinkIsLink</td><td class="Q">143</td><td class="Q">1</td><td><a href="report-1e81aa.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1e81aa.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>xmlschemas.c</td><td class="DESC">xmlSchemaValidateFacets</td><td class="Q">24188</td><td class="Q">1</td><td><a href="report-383ed0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-383ed0.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>xmlschemas.c</td><td class="DESC">xmlSchemaValidateFacets</td><td class="Q">24224</td><td class="Q">1</td><td><a href="report-3ab503.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3ab503.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>xpath.c</td><td class="DESC">xmlXPathRunStreamEval</td><td class="Q">12905</td><td class="Q">1</td><td><a href="report-4c2c91.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4c2c91.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>xmlcatalog.c</td><td class="DESC">usershell</td><td class="Q">110</td><td class="Q">1</td><td><a href="report-4d6dd9.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4d6dd9.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>valid.c</td><td class="DESC">xmlValidateOneElement</td><td class="Q">6057</td><td class="Q">1</td><td><a href="report-5ce058.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5ce058.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>relaxng.c</td><td class="DESC">xmlRelaxNGValidateState</td><td class="Q">10059</td><td class="Q">1</td><td><a href="report-67fbb0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-67fbb0.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>xpath.c</td><td class="DESC">xmlXPathRunStreamEval</td><td class="Q">12951</td><td class="Q">1</td><td><a href="report-710f31.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-710f31.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>pattern.c</td><td class="DESC">xmlStreamPushInternal</td><td class="Q">1897</td><td class="Q">1</td><td><a href="report-737f32.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-737f32.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>tree.c</td><td class="DESC">xmlStringLenGetNodeList</td><td class="Q">1421</td><td class="Q">1</td><td><a href="report-79f5f6.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-79f5f6.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>tree.c</td><td class="DESC">xmlStringGetNodeList</td><td class="Q">1625</td><td class="Q">1</td><td><a href="report-860832.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-860832.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>relaxng.c</td><td class="DESC">xmlRelaxNGCheckRules</td><td class="Q">6429</td><td class="Q">1</td><td><a href="report-990846.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-990846.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>xmlcatalog.c</td><td class="DESC">main</td><td class="Q">409</td><td class="Q">1</td><td><a href="report-a9583e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a9583e.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>tree.c</td><td class="DESC">xmlGetNodePath</td><td class="Q">4681</td><td class="Q">1</td><td><a href="report-b28fd6.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b28fd6.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>xmlschemas.c</td><td class="DESC">xmlSchemaIDCFillNodeTables</td><td class="Q">23366</td><td class="Q">1</td><td><a href="report-b7a270.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b7a270.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>xmlschemas.c</td><td class="DESC">xmlSchemaVAttributesComplex</td><td class="Q">25457</td><td class="Q">1</td><td><a href="report-c74759.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c74759.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>tree.c</td><td class="DESC">xmlStringLenGetNodeList</td><td class="Q">1264</td><td class="Q">1</td><td><a href="report-c9d6a5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c9d6a5.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>xmlstring.c</td><td class="DESC">xmlCheckUTF8</td><td class="Q">795</td><td class="Q">1</td><td><a href="report-cb2555.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-cb2555.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>valid.c</td><td class="DESC">xmlValidateElementContent</td><td class="Q">5202</td><td class="Q">1</td><td><a href="report-eb6867.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-eb6867.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>relaxng.c</td><td class="DESC">xmlRelaxNGCheckRules</td><td class="Q">6139</td><td class="Q">1</td><td><a href="report-ee3af9.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ee3af9.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>xmlwriter.c</td><td class="DESC">xmlTextWriterStartElement</td><td class="Q">1000</td><td class="Q">1</td><td><a href="report-f00928.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f00928.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>valid.c</td><td class="DESC">xmlValidateElementContent</td><td class="Q">5198</td><td class="Q">1</td><td><a href="report-f77d10.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f77d10.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>tree.c</td><td class="DESC">xmlStringGetNodeList</td><td class="Q">1492</td><td class="Q">1</td><td><a href="report-f9860b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f9860b.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlErrorGetFile</td><td class="Q">2631</td><td class="Q">6</td><td><a href="report-0166ac.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0166ac.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>debugXML.c</td><td class="DESC">xmlCtxtGenericNodeCheck</td><td class="Q">285</td><td class="Q">112</td><td><a href="report-024c92.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-024c92.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlErrorGetMessage</td><td class="Q">2679</td><td class="Q">6</td><td><a href="report-07b1b1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-07b1b1.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>parser.c</td><td class="DESC">xmlParseChunk</td><td class="Q">12276</td><td class="Q">18</td><td><a href="report-08027d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-08027d.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURIGetPath</td><td class="Q">12243</td><td class="Q">6</td><td><a href="report-0972c3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0972c3.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURISetAuthority</td><td class="Q">12354</td><td class="Q">6</td><td><a href="report-10cf5f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-10cf5f.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>xinclude.c</td><td class="DESC">xmlXIncludeCopyNode</td><td class="Q">713</td><td class="Q">89</td><td><a href="report-127c9e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-127c9e.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURISetPath</td><td class="Q">12402</td><td class="Q">6</td><td><a href="report-13e4e3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-13e4e3.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURIGetQuery</td><td class="Q">12275</td><td class="Q">6</td><td><a href="report-154f21.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-154f21.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>xinclude.c</td><td class="DESC">xmlXIncludeMergeEntities</td><td class="Q">1181</td><td class="Q">27</td><td><a href="report-18ed29.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-18ed29.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>xmlschemas.c</td><td class="DESC">xmlSchemaCheckElemSubstGroup</td><td class="Q">19775</td><td class="Q">48</td><td><a href="report-18fb11.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-18fb11.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>catalog.c</td><td class="DESC">xmlCatalogUnWrapURN</td><td class="Q">826</td><td class="Q">22</td><td><a href="report-1d7d8c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1d7d8c.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlParserSetLineNumbers</td><td class="Q">5966</td><td class="Q">6</td><td><a href="report-231be5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-231be5.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlXPathGetContextPosition</td><td class="Q">13765</td><td class="Q">6</td><td><a href="report-270507.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-270507.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURIGetQueryRaw</td><td class="Q">12291</td><td class="Q">6</td><td><a href="report-28e2e2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-28e2e2.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml.c</td><td class="DESC">libxml_xmlParserCtxtGetErrorHandler</td><td class="Q">1714</td><td class="Q">6</td><td><a href="report-2c17d9.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2c17d9.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURISetPort</td><td class="Q">12418</td><td class="Q">6</td><td><a href="report-2e042f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2e042f.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>SAX2.c</td><td class="DESC">xmlSAX2AttributeInternal</td><td class="Q">1173</td><td class="Q">28</td><td><a href="report-308773.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-308773.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURIGetFragment</td><td class="Q">12211</td><td class="Q">6</td><td><a href="report-319ff1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-319ff1.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURISetScheme</td><td class="Q">12465</td><td class="Q">6</td><td><a href="report-32c4de.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-32c4de.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURISetOpaque</td><td class="Q">12386</td><td class="Q">6</td><td><a href="report-33a56d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-33a56d.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlParserSetReplaceEntities</td><td class="Q">6011</td><td class="Q">6</td><td><a href="report-352476.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-352476.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlXPathGetFunctionURI</td><td class="Q">13819</td><td class="Q">6</td><td><a href="report-36fc02.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-36fc02.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>relaxng.c</td><td class="DESC">xmlRelaxNGValidateState</td><td class="Q">10235</td><td class="Q">12</td><td><a href="report-37bc03.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-37bc03.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>relaxng.c</td><td class="DESC">xmlRelaxNGValidateState</td><td class="Q">9673</td><td class="Q">7</td><td><a href="report-3b4e88.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3b4e88.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlXPathGetContextNode</td><td class="Q">13747</td><td class="Q">6</td><td><a href="report-3baa88.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3baa88.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlErrorGetCode</td><td class="Q">2599</td><td class="Q">6</td><td><a href="report-484531.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-484531.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlParserSetValidate</td><td class="Q">6026</td><td class="Q">6</td><td><a href="report-4abdc7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4abdc7.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>tree.c</td><td class="DESC">xmlAddChild</td><td class="Q">3375</td><td class="Q">44</td><td><a href="report-4b373e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4b373e.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>parser.c</td><td class="DESC">xmlParserNsPush</td><td class="Q">1795</td><td class="Q">55</td><td><a href="report-4b3893.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4b3893.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURISetUser</td><td class="Q">12497</td><td class="Q">6</td><td><a href="report-513021.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-513021.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURISetQueryRaw</td><td class="Q">12449</td><td class="Q">6</td><td><a href="report-569aff.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-569aff.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlErrorGetLine</td><td class="Q">2663</td><td class="Q">6</td><td><a href="report-581bde.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-581bde.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlParserGetIsValid</td><td class="Q">5843</td><td class="Q">6</td><td><a href="report-5adbf4.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5adbf4.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURISetQuery</td><td class="Q">12433</td><td class="Q">6</td><td><a href="report-5e8f53.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5e8f53.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlParserSetLoadSubset</td><td class="Q">5981</td><td class="Q">6</td><td><a href="report-6446bc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-6446bc.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURIGetOpaque</td><td class="Q">12227</td><td class="Q">6</td><td><a href="report-673b28.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-673b28.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlXPathParserGetContext</td><td class="Q">14607</td><td class="Q">6</td><td><a href="report-706f69.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-706f69.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>relaxng.c</td><td class="DESC">xmlRelaxNGValidateState</td><td class="Q">10277</td><td class="Q">12</td><td><a href="report-7167bc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7167bc.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml.c</td><td class="DESC">libxml_xmlParserCtxtSetErrorHandler</td><td class="Q">1664</td><td class="Q">6</td><td><a href="report-719767.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-719767.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlXPathSetContextDoc</td><td class="Q">14816</td><td class="Q">8</td><td><a href="report-742b9c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-742b9c.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml.c</td><td class="DESC">libxml_addLocalCatalog</td><td class="Q">2911</td><td class="Q">8</td><td><a href="report-752882.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-752882.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>relaxng.c</td><td class="DESC">xmlRelaxNGValidateInterleave</td><td class="Q">9344</td><td class="Q">20</td><td><a href="report-75a85f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-75a85f.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlXPathGetFunction</td><td class="Q">13801</td><td class="Q">6</td><td><a href="report-7dbf82.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7dbf82.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>xmlregexp.c</td><td class="DESC">xmlRegExecGetValues</td><td class="Q">4212</td><td class="Q">47</td><td><a href="report-7ed714.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7ed714.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>parser.c</td><td class="DESC">xmlParseExternalEntityPrivate</td><td class="Q">12814</td><td class="Q">32</td><td><a href="report-800501.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-800501.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>xmlschemas.c</td><td class="DESC">xmlSchemaIntersectWildcards</td><td class="Q">13820</td><td class="Q">69</td><td><a href="report-83a0dd.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-83a0dd.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlXPathGetContextDoc</td><td class="Q">13729</td><td class="Q">6</td><td><a href="report-8461e4.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-8461e4.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>parser.c</td><td class="DESC">xmlParserNsPop</td><td class="Q">1849</td><td class="Q">47</td><td><a href="report-8d577b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-8d577b.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>dict.c</td><td class="DESC">xmlDictLookupInternal</td><td class="Q">777</td><td class="Q">23</td><td><a href="report-932cf8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-932cf8.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURIGetServer</td><td class="Q">12323</td><td class="Q">6</td><td><a href="report-945da4.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-945da4.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURISetFragment</td><td class="Q">12370</td><td class="Q">6</td><td><a href="report-a373fc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a373fc.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURIGetAuthority</td><td class="Q">12195</td><td class="Q">6</td><td><a href="report-ac978a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ac978a.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURIGetScheme</td><td class="Q">12307</td><td class="Q">6</td><td><a href="report-b775ac.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b775ac.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlErrorGetDomain</td><td class="Q">2615</td><td class="Q">6</td><td><a href="report-c4e1ab.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c4e1ab.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURIGetUser</td><td class="Q">12339</td><td class="Q">6</td><td><a href="report-c5d17d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c5d17d.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>xmlsave.c</td><td class="DESC">htmlNodeDumpOutputInternal</td><td class="Q">779</td><td class="Q">23</td><td><a href="report-c689ad.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c689ad.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURIGetPort</td><td class="Q">12259</td><td class="Q">6</td><td><a href="report-c72bbe.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c72bbe.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlParserSetPedantic</td><td class="Q">5996</td><td class="Q">6</td><td><a href="report-c8f4f8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c8f4f8.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlXPathSetContextNode</td><td class="Q">14835</td><td class="Q">8</td><td><a href="report-c94f5f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c94f5f.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlParserGetWellFormed</td><td class="Q">5859</td><td class="Q">6</td><td><a href="report-caf522.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-caf522.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml.c</td><td class="DESC">libxml_xmlFreeValidCtxt</td><td class="Q">1891</td><td class="Q">6</td><td><a href="report-cf4fda.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-cf4fda.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlErrorGetLevel</td><td class="Q">2647</td><td class="Q">6</td><td><a href="report-d130ef.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d130ef.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlURISetServer</td><td class="Q">12481</td><td class="Q">6</td><td><a href="report-d16d27.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d16d27.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>hash.c</td><td class="DESC">xmlHashUpdateInternal</td><td class="Q">556</td><td class="Q">29</td><td><a href="report-d387d9.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d387d9.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>xpath.c</td><td class="DESC">xmlXPathRunEval</td><td class="Q">13049</td><td class="Q">52</td><td><a href="report-d809f0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d809f0.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>xpath.c</td><td class="DESC">xmlXPathNodeCollectAndTest</td><td class="Q">11641</td><td class="Q">28</td><td><a href="report-df90b2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-df90b2.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlParserGetDoc</td><td class="Q">5827</td><td class="Q">6</td><td><a href="report-e275d0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e275d0.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>python/libxml2-py.c</td><td class="DESC">libxml_xmlXPathGetContextSize</td><td class="Q">13783</td><td class="Q">6</td><td><a href="report-f78fba.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f78fba.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>SAX2.c</td><td class="DESC">xmlSAX2AttributeInternal</td><td class="Q">1107</td><td class="Q">23</td><td><a href="report-f89bc8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f89bc8.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>xmlschemas.c</td><td class="DESC">xmlSchemaFixupComplexType</td><td class="Q">18490</td><td class="Q">30</td><td><a href="report-f975a6.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f975a6.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>xmllint.c</td><td class="DESC">streamFile</td><td class="Q">1919</td><td class="Q">11</td><td><a href="report-8be73e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-8be73e.html" -->
+</tr>
+</tbody>
+</table>
+
+</body></html>

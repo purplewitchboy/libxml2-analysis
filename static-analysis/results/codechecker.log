@@ -1,0 +1,32 @@
+Failed to run: "/usr/bin/llvm-alt-tool-wrapper --version"
+stdout: 
+stderr: You have invoked the ALT wrapper program for the installed
+LLVM toolchains and utilities.
+You're seeing this message, because it could not determine
+which program it was executed as.
+The package "llvm-common" symlinks /usr/bin/clang and other tools
+to this program, so it can find and execute the real tool.
+
+The wrapper can be controlled with environment variables.
+To use a specific major version (e. g. 9.0) of a particular tool,
+call its symlink with the environment variable ALTWRAP_LLVM_VERSION
+set to "9.0". The default is "20.1".
+
+Failed to run: "/usr/bin/llvm-alt-tool-wrapper --version"
+stdout: 
+stderr: You have invoked the ALT wrapper program for the installed
+LLVM toolchains and utilities.
+You're seeing this message, because it could not determine
+which program it was executed as.
+The package "llvm-common" symlinks /usr/bin/clang and other tools
+to this program, so it can find and execute the real tool.
+
+The wrapper can be controlled with environment variables.
+To use a specific major version (e. g. 9.0) of a particular tool,
+call its symlink with the environment variable ALTWRAP_LLVM_VERSION
+set to "9.0". The default is "20.1".
+
+[INFO 2026-03-06 15:53] - Starting build...
+[ERROR 2026-03-06 15:53] - Both ldlogger and intercept-build are unavailable.
+Try acquiring the compilation_commands.json in another way.
+Install ldlogger or intercept-build to proceed.
