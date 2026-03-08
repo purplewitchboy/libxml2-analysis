@@ -12,7 +12,10 @@ nano
 
 Есть две дирректории, содержашие в себе Dockerfile и результаты анализа, названия директорий соответствуют статическому анализу и фаззингу. Версия тестируемой libxml2: 2.12.10, зафиксирована в Dockerfile.
 
-Разметка результатов статического анализа находится в файле /static-analysis/results/scan-build-report/2026-03-06-160453-5175-1/index.html
+Лог результатов статического анализа находится в файле /static-analysis/results/scan-build-report/2026-03-06-160453-5175-1/index.html и в /static-analysis/results/scan-build.log
+
+Разметка 3 срабатываний находится в /static-analysis/results/static-analysis-markup.md
+
 
 Сборка контейнера для статического анализа:
 ```c
