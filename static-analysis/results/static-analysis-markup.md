@@ -11,6 +11,9 @@ Line: 777
 
 **Code fragment:**
 ```c
+if (entry->hashValue != 0) {
+ const xmlDictEntry *end = &dict->table[dict->size];
+ const xmlDictEntry *cur = entry;
 ```
 
 **Validity:** (подтверждается / не подтверждается / недостаточно информации)
