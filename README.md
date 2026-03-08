@@ -23,15 +23,15 @@ docker run --rm -it \
     -v $(pwd)/results:/results \
     libxml2-clang-sa
 ```
-3. Запустить
-   ```c
-   ./autogen.sh
-   ```
-4.
+2. Запустить
 ```c
-   scan-build --status-bugs \
-    -o /results/scan-build-report \
-    make -j$(nproc) 2>&1 | tee /results/scan-build.log
+./autogen.sh
+```
+3.
+```c
+scan-build --status-bugs \
+-o /results/scan-build-report \
+make -j$(nproc) 2>&1 | tee /results/scan-build.log
 ```
 
 Сборка контейнера фаззинга:
@@ -42,23 +42,24 @@ docker build -t libxml2-afl .
 
 Запуск фаззинга:
 1. Войти в контейнер
-   ```c
-   docker run --rm -it \
-    -v $(pwd):/fuzz \
-    libxml2-afl
-   ```
-2. ```c
-    ./autogen.sh
-   ```
-4. 
+```c
+docker run --rm -it \
+-v $(pwd):/fuzz \
+libxml2-afl
+```
+2. 
+```c
+./autogen.sh
+```
+3. 
 ```c
 ./configure
 ```
-5.
+4.
 ```c
 make -j$(nproc)
 ```
-6.
+5.
 ```c
 afl-fuzz -i /fuzz/seeds \
          -o /fuzz/findings \
