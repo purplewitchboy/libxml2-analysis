@@ -62,6 +62,11 @@ Line: 1919
 
 **Code fragment:**
 ```c
+if (memory) {
+xmlFreeParserInputBuffer(input);
+munmap((char *) base, info.st_size);
+close(fd);
+}
 ```
 
 **Validity:** (подтверждается / не подтверждается / недостаточно информации)
